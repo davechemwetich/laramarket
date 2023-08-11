@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laramarket/common/widgets/app_shadow.dart';
 import 'package:laramarket/common/widgets/text_widgets.dart';
 
@@ -8,6 +9,7 @@ Widget onboardingPage(
   String title = "",
   String subTitle = "",
   index = 0,
+  BuildContext? context,
 }) {
   return Column(
     children: [
@@ -28,12 +30,12 @@ Widget onboardingPage(
           text: subTitle,
         ),
       ),
-      _nextButton(index, controller)
+      _nextButton(context!, index, controller)
     ],
   );
 }
 
-Widget _nextButton(int index, PageController controller) {
+Widget _nextButton(BuildContext context, int index, PageController controller) {
   return GestureDetector(
     onTap: () {
       if (index < 3) {
@@ -42,18 +44,25 @@ Widget _nextButton(int index, PageController controller) {
           duration: const Duration(milliseconds: 300),
           curve: Curves.bounceInOut,
         );
+      } else {
+        Navigator.pushNamed(
+          context,
+          "/signin",
+        );
       }
     },
     child: Container(
-      width: 325,
-      height: 50,
-      margin: const EdgeInsets.only(
-        top: 100,
-        left: 25,
-        right: 25,
+      width: 325.w,
+      height: 50.h,
+      margin: EdgeInsets.only(
+        top: 100.h,
+        left: 25.w,
+        right: 25.w,
       ),
       decoration: appBoxShadow(),
-      child: Center(child: text16Normal(text: "Next")),
+      child: Center(
+          child: text16Normal(
+              text: index < 3 ? "Next" : "Get Started", color: Colors.white)),
     ),
   );
 }

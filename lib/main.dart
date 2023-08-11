@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laramarket/pages/auth/sign_in.dart';
 import 'package:laramarket/pages/welcome/welcome.dart';
 
 void main() {
-  runApp(const Techli());
+  runApp(
+    const ProviderScope(
+      child: Techli(),
+    ),
+  );
 }
 
 class Techli extends StatelessWidget {
@@ -24,10 +30,15 @@ class Techli extends StatelessWidget {
           title: 'Techli Market',
           // You can use the library anywhere in the app even in theme
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.purple,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            useMaterial3: true,
           ),
-          home: const Karibu(),
+          initialRoute: "/",
+          routes: {
+            "/": (context) => Karibu(context: context),
+            "/signin": (context) => const SignIn(),
+          },
         );
       },
     );
