@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laramarket/common/utils/app_colors.dart';
 
 Widget text24Normal({
@@ -37,11 +38,28 @@ Widget text14Normal({
 }) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: TextAlign.start,
     style: TextStyle(
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.normal,
+    ),
+  );
+}
+
+Widget textUndeLine({String text = "Your Text"}) {
+  return GestureDetector(
+    onTap: () {},
+    child: Text(
+      text,
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        color: AppColors.primaryText,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.sp,
+      ),
     ),
   );
 }

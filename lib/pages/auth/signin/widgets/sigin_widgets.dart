@@ -1,23 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:laramarket/common/utils/app_colors.dart';
-import 'package:laramarket/common/widgets/text_widgets.dart';
 
 // prefered sized gives a hight or space  from AppBar  downwards and we can put child in a given space
-//
-AppBar buildAppbar() {
-  return AppBar(
-    bottom: PreferredSize(
-      preferredSize: const Size.fromHeight(1),
-      child: Container(
-        color: Colors.black,
-        height: 1,
-      ),
-    ),
-    title: text16Normal(text: "Log in", color: AppColors.primaryText),
-    centerTitle: true,
-  );
-}
 
 Widget thirdPartyLogin() {
   return Container(
@@ -40,14 +24,6 @@ Widget _loginButton(String imagePath) {
       width: 40.w,
       height: 40.h,
       child: Image.network(imagePath),
-    ),
-  );
-}
-
-Widget appTextField() {
-  return Container(
-    child: Column(
-      children: [],
     ),
   );
 }

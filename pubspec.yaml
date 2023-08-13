@@ -39,6 +39,8 @@ dependencies:
   flutter_riverpod: ^2.3.6
   cached_network_image: ^3.2.3
   riverpod_annotation:
+  fluttertoast: ^8.2.2
+  lottie: ^2.6.0
 
 dev_dependencies:
   flutter_test:
